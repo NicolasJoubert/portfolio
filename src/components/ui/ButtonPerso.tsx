@@ -1,8 +1,11 @@
+import { cn } from "@/lib/utils";
+
 interface ButtonProps {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "accent" | "ghost";
   onClick?: () => void;
   href?: string;
+  className?: string;
 }
 
 export default function Button({
@@ -10,6 +13,7 @@ export default function Button({
   variant = "primary",
   onClick,
   href,
+  className,
 }: ButtonProps) {
   const styles = {
     primary: "bg-foreground text-background",
@@ -18,7 +22,11 @@ export default function Button({
     ghost: "bg-transparent text-accent border-none",
   };
 
-  const base = `text-[13px] px-6 py-2.5 rounded-full cursor-pointer transition-opacity hover:opacity-80 ${styles[variant]}`;
+  const base = cn(
+    "text-[13px] px-6 py-2.5 rounded-full cursor-pointer transition-opacity hover:opacity-80",
+    styles[variant],
+    className,
+  );
 
   if (href)
     return (

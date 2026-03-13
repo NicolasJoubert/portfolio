@@ -16,7 +16,7 @@ function App() {
         <Button variant="primary">Voir mes projets</Button>
       </div>
       <div>
-        <Tag variant="accent">React</Tag>
+        <Tag variant="default">React</Tag>
       </div>
       <SectionLabel>Projets</SectionLabel>
     </div>
