@@ -1,0 +1,34 @@
+interface ButtonProps {
+  children: React.ReactNode;
+  variant?: "primary" | "secondary" | "accent" | "ghost";
+  onClick?: () => void;
+  href?: string;
+}
+
+export default function Button({
+  children,
+  variant = "primary",
+  onClick,
+  href,
+}: ButtonProps) {
+  const styles = {
+    primary: "bg-foreground text-background",
+    secondary: "bg-transparent text-foreground border border-border",
+    accent: "bg-transparent text-accent border border-accent",
+    ghost: "bg-transparent text-accent border-none",
+  };
+
+  const base = `text-[13px] px-6 py-2.5 rounded-full cursor-pointer transition-opacity hover:opacity-80 ${styles[variant]}`;
+
+  if (href)
+    return (
+      <a href={href} className={base}>
+        {children}
+      </a>
+    );
+  return (
+    <button onClick={onClick} className={base}>
+      {children}
+    </button>
+  );
+}
