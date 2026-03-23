@@ -4,6 +4,8 @@ import Button from "@/components/ui/ButtonPerso.tsx";
 import SectionLabel from "@/components/ui/SectionLabel.tsx";
 import Tag from "./components/ui/Tag.tsx";
 import Footer from "./components/layout/Footer.tsx";
+import { PROJECTS } from "@/lib/constants";
+import { ProjectCard } from "@/components/layout/ProjectCard.tsx";
 
 function App() {
   return (
@@ -22,7 +24,21 @@ function App() {
         <div>
           <Tag variant="default">React</Tag>
         </div>
-        <SectionLabel>Projets</SectionLabel>
+        <div>
+          <SectionLabel>Projets</SectionLabel>
+          <div className="grid grid-cols-1 gap-16">
+            {PROJECTS.map((project, index) => (
+              <div
+                key={project.title}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+        </div>
+
         <SectionLabel>Projets</SectionLabel>
         <SectionLabel>Projets</SectionLabel>
         <SectionLabel>Projets</SectionLabel>
