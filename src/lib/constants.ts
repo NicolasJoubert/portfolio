@@ -1,6 +1,5 @@
 // src/lib/constants.ts
-import { Mail, Linkedin } from "lucide-react";
-import { SiGithub, SiX } from "@icons-pack/react-simple-icons";
+import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 
 export const NAV_LINKS = [
   { label: "Accueil", href: "/" },
@@ -10,14 +9,14 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SOCIALS = [
-  { name: "GitHub", href: "https://github.com/ton-pseudo", icon: SiGithub },
+  { name: "GitHub", href: "https://github.com/ton-pseudo", icon: FaGithub },
   {
     name: "Linkedin",
     href: "https://www.linkedin.com/in/nicolas--joubert/",
-    icon: Linkedin,
+    icon: FaLinkedin,
   },
-  { name: "X", href: "https://x.com/Nico_Joubert", icon: SiX },
-  { name: "Email", href: "mailto:nicolasjoubert@icloud.com", icon: Mail },
+  { name: "X", href: "https://x.com/Nico_Joubert", icon: FaXTwitter },
+  { name: "Email", href: "mailto:nicolasjoubert@icloud.com", icon: FaEnvelope },
 ] as const;
 
 export const PROJECTS = [

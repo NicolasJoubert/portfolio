@@ -3,6 +3,7 @@ import { H1, Body } from "@/components/ui/Typography.tsx";
 import Button from "@/components/ui/ButtonPerso.tsx";
 import SectionLabel from "@/components/ui/SectionLabel.tsx";
 import Tag from "./components/ui/Tag.tsx";
+import Footer from "./components/layout/Footer.tsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <SectionLabel>Projets</SectionLabel>
         <SectionLabel>Projets</SectionLabel>
       </main>
+      <Footer />
     </>
   );
 }
