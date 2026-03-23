@@ -1,22 +1,22 @@
 # Nicolas Joubert - Portfolio
 
 Bienvenue sur le dépôt de mon portfolio personnel !
-Ce site web a été conçu pour présenter mon travail, mes compétences et mes projets en tant que développeur frontend, avec un focus sur l'ergonomie, les micro-animations et un design moderne.
+Ce site web a été conçu pour présenter mon travail, mes compétences et mes projets en tant que développeur, avec un focus sur l'ergonomie, les micro-animations et un design moderne.
 
 ## Fonctionnalités
 
-- **Design Moderne & Épuré** : Interface soignée (Dark/Light) utilisant des principes de design premium.
-- **Animations Subtiles** : Expérience utilisateur enrichie avec Framer Motion (hover, apparition, badge de disponibilité "en direct").
-- **Entièrement Responsive** : S'adapte parfaitement aux mobiles, tablettes et ordinateurs de bureau.
+- **Design Moderne & Épuré** : Interface soignée (Dark/Light).
+- **Animations Subtiles** : Expérience utilisateur avec Framer Motion (hover, apparition, badge de disponibilité "en direct").
+- **Entièrement Responsive** : S'adapte aux mobiles, tablettes et ordinateurs de bureau.
 - **Architecture Propre** : Code structuré, scalable (DRY) et composants fortement réutilisables grâce à Shadcn.
 
 ## Stack Technique
 
-Ce portfolio est construit avec des outils à la pointe de l'écosystème React :
+Ce portfolio est construit avec :
 
-- **Cœur** : [React](https://react.dev/) (v19) via le bundler ultra-rapide [Vite](https://vitejs.dev/)
-- **Langage** : [TypeScript](https://www.typescriptlang.org/) pour une robustesse maximale
-- **Styling** : [Tailwind CSS](https://tailwindcss.com/) (v4)
+- **Cœur** : [React](https://react.dev/) (v19) via le bundler [Vite](https://vitejs.dev/)
+- **Langage** : [TypeScript](https://www.typescriptlang.org/)
+- **Styling** : [Tailwind CSS](https://tailwindcss.com/)
 - **Composants Prêts à l'Emploi** : [Shadcn/UI](https://ui.shadcn.com/) & Radix UI
 - **Animations** : [Framer Motion](https://www.framer.com/motion/)
 - **Icônes** : [React Icons](https://react-icons.github.io/react-icons/) (FontAwesome 6) & [Lucide React](https://lucide.dev/)
