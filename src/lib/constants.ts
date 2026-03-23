@@ -28,3 +28,11 @@ export const PROJECTS = [
     image: "",
   },
 ];
+
+export const USER_CONFIG = {
+  status: {
+    isAvailable: true,
+    message: "Disponible pour de nouvelles missions",
+    unavailableMessage: "En mission actuellement",
+  },
+} as const;

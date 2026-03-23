@@ -1,5 +1,7 @@
+import { USER_CONFIG } from "@/lib/constants.ts";
+
 export function AvailabilityBadge({
-  isAvailable = true,
+  isAvailable = USER_CONFIG.status.isAvailable,
 }: {
   isAvailable?: boolean;
 }) {
@@ -18,8 +20,8 @@ export function AvailabilityBadge({
         ></span>
       </span>
       {isAvailable
-        ? "Disponible pour de nouvelles missions"
-        : "Non disponible actuellement"}
+        ? USER_CONFIG.status.message
+        : USER_CONFIG.status.unavailableMessage}
     </div>
   );
 }
