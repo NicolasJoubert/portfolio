@@ -26,11 +26,11 @@ export default function Header() {
       className={cn(
         "fixed top-0 w-full z-[100]",
         isScrolled
-          ? "bg-background border-b border-border shadow-sm"
+          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent border-b border-transparent",
       )}
     >
-      <nav className="mx-auto max-w-[800px] px-8 py-6 flex items-center justify-between">
+      <nav className="mx-auto max-w-[1080px] px-8 py-6 flex items-center justify-between">
         <a href="#" className="font-medium text-accent text-sm">
           Nicolas Joubert
         </a>

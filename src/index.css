@@ -101,6 +101,38 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+.wave-text {
+  background: linear-gradient(
+    90deg,
+    var(--foreground) 0%,
+    var(--foreground) 40%,
+    var(--accent) 50%,
+    var(--foreground) 60%,
+    var(--foreground) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-position: 100% 0;
+  transition: background-position 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-title:hover .wave-text {
+  background-position: 0% 0;
+  animation: wave-pulse 2s ease-in-out infinite;
+}
+
+@keyframes wave-pulse {
+  0%,
+  100% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
