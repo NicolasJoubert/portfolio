@@ -6,6 +6,8 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   className?: string;
+  target?: string;
+  rel?: string;
 }
 
 export default function Button({
@@ -14,6 +16,8 @@ export default function Button({
   onClick,
   href,
   className,
+  target,
+  rel,
 }: ButtonProps) {
   const styles = {
     primary: "bg-foreground text-background",
@@ -30,7 +34,7 @@ export default function Button({
 
   if (href)
     return (
-      <a href={href} className={base}>
+      <a href={href} className={base} target={target} rel={rel}>
         {children}
       </a>
     );
