@@ -1,7 +1,9 @@
 import type { Project } from "@/lib/constants";
 import Card from "../ui/Card.tsx";
 import Tag from "../ui/Tag";
-
+// Import de tes composants de typographie
+import { H2, Body } from "../ui/Typography";
+import { ArrowUpRight } from "lucide-react";
 interface ProjectCardProps {
   project: Project;
 }
@@ -53,32 +55,24 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
 
-        {/* Contenu */}
-        <div className="flex flex-col gap-3 flex-grow min-w-0 pt-4 sm:pt-0">
-          <h3 className="text-base font-bold text-foreground group-hover:text-accent transition-colors flex items-center gap-2 leading-none">
-            {project.title}
-            <span className="inline-block text-muted-foreground/40 group-hover:text-accent transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-              ↗
+        <div className="flex flex-col gap-2 flex-grow min-w-0 pt-4 sm:pt-0">
+          <H2 className="text-xl md:text-2xl font-bold mb-1 group-hover:text-accent transition-colors">
+            <span className="inline-flex items-center gap-2">
+              {project.title}
+              <ArrowUpRight className="w-4 h-4 text-accent/40" />
             </span>
-          </h3>
+          </H2>
 
-          <p className="text-[13px] text-muted-foreground/90 leading-relaxed line-clamp-2">
-            {project.description}
-          </p>
+          <Body className="mb-5">{project.description}</Body>
 
-          <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
-            {project.tech.map((tech) => (
+          <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
+            {project.tech.map((techno) => (
               <Tag
-                key={tech}
+                key={techno.name}
                 variant="badge"
-                className="
-                  bg-accent/5 border-accent/10 text-accent
-                  px-2.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase
-                  group-hover:bg-accent/10 group-hover:border-accent/20
-                  transition-colors duration-300
-                "
+                category={techno.category as "techno" | "expertise"}
               >
-                {tech}
+                {techno.name}
               </Tag>
             ))}
           </div>

@@ -31,7 +31,9 @@ export default function HeroBanner() {
           {sortedSkills.map((skill) => (
             <Tag
               key={skill.name}
-              variant={skill.category === "techno" ? "default" : "accent"}
+              category={skill.category as "techno" | "expertise"}
+              size="md"
+              className="hover:scale-105 transition-transform"
             >
               {skill.name}
             </Tag>
