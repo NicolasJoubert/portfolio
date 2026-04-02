@@ -23,8 +23,8 @@ export default function Tag({
   };
 
   const sizes = {
-    sm: "text-[10px] px-2.5 py-0.5 uppercase tracking-wide font-semibold",
-    md: "text-[11px] px-3 py-1",
+    sm: "text-xs px-3 py-1 font-medium",
+    md: "text-sm px-4 py-1.5 font-medium",
   };
 
   return (

@@ -79,8 +79,10 @@ export default function ContactForm() {
     <section id="contact" className="w-full flex justify-center">
       <Card className="w-full sm:max-w-md bg-transparent border-none shadow-none ring-0 p-2">
         <CardHeader className="px-0 pt-0">
-          <CardTitle>Formulaire</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-foreground">
+            Formulaire
+          </CardTitle>
+          <CardDescription className="text-[15px] md:text-base leading-relaxed">
             Contactez-moi pour tous vos projets et demande de renseignements
           </CardDescription>
         </CardHeader>
@@ -96,7 +98,7 @@ export default function ContactForm() {
                     <Input
                       {...field}
                       placeholder="Ex: Jean de chez TechCorp"
-                      className="bg-white text-black placeholder:text-sm md:placeholder:text-xs placeholder:italic"
+                      className="bg-white text-black placeholder:italic"
                     />
                     <AnimatePresence>
                       {fieldState.invalid && (
@@ -116,7 +118,7 @@ export default function ContactForm() {
                       {...field}
                       type="email"
                       placeholder="jean@techcorp.com"
-                      className="bg-white text-black placeholder:text-sm md:placeholder:text-xs placeholder:italic"
+                      className="bg-white text-black placeholder:italic"
                     />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -130,7 +132,7 @@ export default function ContactForm() {
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel>Votre besoin</FieldLabel>
-                    <div className="flex flex-wrap gap-3 py-2 px-2">
+                    <div className="flex flex-wrap gap-2 py-2 px-1">
                       {[
                         "Création site Web",
                         "Audit Produit / PO",
@@ -146,8 +148,8 @@ export default function ContactForm() {
                           onClick={() => field.onChange(opt)}
                           className={
                             field.value === opt
-                              ? "scale-105 shadow-md relative z-10"
-                              : ""
+                              ? "relative z-10 scale-100 px-3.5 py-2 text-xs md:text-sm shadow-md"
+                              : "px-3.5 py-2 text-xs md:text-sm"
                           }
                         >
                           {opt}
@@ -171,10 +173,10 @@ export default function ContactForm() {
                         {...field}
                         placeholder="Décrivez votre projet ou votre problématique..."
                         rows={5}
-                        className="min-h-24 resize-none placeholder:text-sm md:placeholder:text-xs placeholder:italic"
+                        className="min-h-24 resize-none placeholder:italic"
                       />
                       <InputGroupAddon align="block-end">
-                        <InputGroupText className="tabular-nums text-[10px] opacity-50">
+                        <InputGroupText className="tabular-nums text-xs opacity-50">
                           {field.value.length}/1000
                         </InputGroupText>
                       </InputGroupAddon>
@@ -189,15 +191,24 @@ export default function ContactForm() {
           </form>
         </CardContent>
         <CardFooter className="bg-transparent border-none p-0 pt-4">
-          <Field orientation="horizontal" className="flex justify-center">
+          <Field
+            orientation="horizontal"
+            className="flex justify-center gap-2 sm:gap-3"
+          >
             <Button
               type="button"
               variant="secondary"
               onClick={() => form.reset()}
+              className="px-4 py-2 text-sm md:text-sm"
             >
               Annuler
             </Button>
-            <Button type="submit" form="form-rhf-demo" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              form="form-rhf-demo"
+              disabled={isSubmitting}
+              className="px-4 py-2 text-sm md:text-sm"
+            >
               {isSubmitting ? "Envoi..." : "Envoyer"}
             </Button>
           </Field>

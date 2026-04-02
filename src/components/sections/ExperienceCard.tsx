@@ -10,7 +10,7 @@ import {
 import type { Experience } from "@/lib/constants";
 import Card from "@/components/ui/CardPerso.tsx";
 import Tag from "@/components/ui/Tag";
-import { H2, Body, Small } from "@/components/ui/Typography";
+import { H3, Body, Small } from "@/components/ui/Typography";
 
 interface ExperienceCardProps {
   experience: Experience;
@@ -57,16 +57,15 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
             hover:-translate-y-1
           "
         >
-          {/* En-tête : icône + titre + période */}
           <div className="flex items-start justify-between mb-6 gap-4">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-muted/50 border border-border/20 flex items-center justify-center flex-shrink-0 group-hover:border-accent/30 transition-colors">
                 <Icon className="w-6 h-6 text-accent" />
               </div>
               <div>
-                <H2 className="text-xl md:text-2xl font-bold mb-1 group-hover:text-accent transition-colors">
+                <H3 className="mb-1 group-hover:text-accent transition-colors">
                   {experience.role}
-                </H2>
+                </H3>
                 <Small className="font-medium">{experience.company}</Small>
                 {/* Date sous la company sur mobile uniquement */}
                 <div className="flex items-center gap-1.5 mt-1 sm:hidden text-muted-foreground/60">
@@ -77,7 +76,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
                 </div>
               </div>
             </div>
-            {/* Date à droite sur desktop uniquement */}
+
             <div className="hidden sm:flex items-center gap-2 text-muted-foreground/60 flex-shrink-0">
               <Calendar className="w-4 h-4" />
               <Small className="uppercase tracking-wider">
@@ -86,15 +85,15 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
             </div>
           </div>
 
-          {/* Description */}
           <Body className="mb-5">{experience.description}</Body>
 
-          {/* Achievements */}
-          <ul className="space-y-2.5 mb-8 border-l border-border/60 pl-4">
+          <ul className="space-y-4 mb-8 border-l-2 border-accent/10 pl-6 ml-2">
             {experience.achievements.map((achievement, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <ArrowUpRight className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent/40" />
-                <Small>{achievement}</Small>
+              <li key={i} className="flex items-start gap-3 group/item">
+                <ArrowUpRight className="w-4 h-4 mt-1 flex-shrink-0 text-accent/30 group-hover/item:text-accent transition-colors" />
+                <p className="text-[15px] md:text-base text-muted-foreground leading-relaxed">
+                  {achievement}
+                </p>
               </li>
             ))}
           </ul>
