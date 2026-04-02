@@ -161,8 +161,6 @@ export const HERO_CONTENT: HeroContent = {
   ctaLabel: "Me contacter",
 };
 
-// src/constants/EXPERIENCES.ts
-
 export const EXPERIENCES: Experience[] = [
   {
     id: "lacasa",
@@ -173,14 +171,16 @@ export const EXPERIENCES: Experience[] = [
     description: "Architecture et développement d'un site vitrine moderne",
     achievements: [
       "Architecture complète avec React 19 et TypeScript",
-      "Intégration CMS (Contentful) et automatisation n8n",
       "Optimisation SEO et Core Web Vitals",
+      "Réduction du temps de mise à jour du catalogue de 80% via Contentful.",
+      "Automatisation du flux de leads via n8n (zéro saisie manuelle).",
     ],
     technos: [
       { name: "React 19", category: "techno" },
       { name: "TypeScript", category: "techno" },
       { name: "n8n", category: "techno" },
       { name: "SEO", category: "expertise" },
+      { name: "Automation", category: "expertise" },
     ],
   },
   {
@@ -199,6 +199,7 @@ export const EXPERIENCES: Experience[] = [
       { name: "React", category: "techno" },
       { name: "Node.js", category: "techno" },
       { name: "MongoDB", category: "techno" },
+      { name: "Product Design", category: "expertise" },
     ],
   },
   {
@@ -230,13 +231,16 @@ export const EXPERIENCES: Experience[] = [
     description: "Pilotage de projets transverses à l'échelle nationale",
     achievements: [
       "Gestion de projets du POC au déploiement national",
+      "Coordination entre les équipes métiers et IT pour garantir l'adéquation du produit aux besoins terrain.",
       "Optimisation de process et parcours clients complexes",
       "Formation et accompagnement au changement",
+      "Réduction de la friction sur les parcours clients grâce à une approche centrée utilisateur.",
     ],
     technos: [
       { name: "Gestion de projet", category: "expertise" },
       { name: "Process", category: "expertise" },
       { name: "Agile", category: "expertise" },
+      { name: "Formation", category: "expertise" },
     ],
   },
   {
@@ -255,6 +259,7 @@ export const EXPERIENCES: Experience[] = [
       { name: "Relation Client", category: "expertise" },
       { name: "Négociation", category: "expertise" },
       { name: "Analyse de Risque", category: "expertise" },
+      { name: "Écoute Active", category: "expertise" },
     ],
   },
 ];
