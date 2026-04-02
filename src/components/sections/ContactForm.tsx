@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
+import emailjs from "@emailjs/browser";
 
 import Button from "../ui/ButtonPerso";
 import {
@@ -58,9 +59,17 @@ export default function ContactForm() {
 
   async function onSubmit(data: z.infer<typeof contactSchema>) {
     try {
-      // 1. TODO A remplacer par l'API
-      console.log("Sending data:", data);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await emailjs.send(
+        "service_whvntdd",
+        "template_caeo65m",
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        "LlvdU-Rxoz5XB3KSb",
+      );
 
       toast.success("Message envoyé !", {
         description: "Je vous répondrai dans les plus brefs délais.",
