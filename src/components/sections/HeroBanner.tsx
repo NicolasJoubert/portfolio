@@ -15,7 +15,10 @@ export default function HeroBanner() {
     return 0;
   });
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-28">
+    <section
+      id="home"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-28"
+    >
       <div className="flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left gap-6 lg:gap-8">
         <H1 className="hero-title relative inline-block cursor-default">
           <span className="wave-text">{HERO_CONTENT.title}</span>
