@@ -41,7 +41,7 @@ const contactSchema = z.object({
       message: "Dis-moi comment je peux t'aider !",
     },
   ),
-  message: z.string().min(10, "Explique-moi ton besoin en quelques mots"),
+  message: z.string().min(100, "Explique-moi ton besoin en quelques mots"),
 });
 
 export default function ContactForm() {
@@ -188,7 +188,7 @@ export default function ContactForm() {
                       />
                       <InputGroupAddon align="block-end">
                         <InputGroupText className="tabular-nums text-xs opacity-50">
-                          {field.value.length}/1000
+                          {field.value.length}/100
                         </InputGroupText>
                       </InputGroupAddon>
                     </InputGroup>
