@@ -17,9 +17,9 @@ export default function HeroBanner() {
   return (
     <section
       id="home"
-      className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center pt-24 pb-40"
+      className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 pt-24 pb-40 w-full min-h-screen"
     >
-      <div className="flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left gap-6 lg:gap-8">
+      <div className="flex-1 flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left gap-6 lg:gap-8">
         <H1 className="hero-title relative inline-block cursor-default">
           <span className="wave-text">{HERO_CONTENT.title}</span>
         </H1>
@@ -44,8 +44,8 @@ export default function HeroBanner() {
           <AvailabilityBadge />
         </div>
       </div>
-      <div className="relative w-full max-w-[450px] mx-auto lg:ml-auto">
-        <div className="hero-image group aspect-[4/5] overflow-hidden rounded-[1.5rem] shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+      <div className="relative w-full max-w-[400px] lg:w-[450px] flex-shrink-0">
+        <div className="hhero-image group aspect-[4/5] overflow-hidden rounded-[1.5rem] shadow-2xl transition-all duration-500 hover:scale-[1.02]">
           <motion.img
             src={image}
             alt="Photo de profil Nicolas Joubert"

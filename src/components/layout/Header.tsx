@@ -24,13 +24,13 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-[100]",
+        "fixed top-0 w-full z-[100] flex justify-center",
         isScrolled
           ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent border-b border-transparent",
       )}
     >
-      <nav className="mx-auto max-w-[1080px] px-8 py-6 flex items-center justify-between">
+      <nav className="w-full max-w-6xl px-8 py-6 flex items-center justify-between">
         <span className="font-medium text-accent text-base">
           Nicolas Joubert
         </span>
