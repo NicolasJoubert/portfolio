@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/popover";
 import { useSyncExternalStore } from "react";
 import { cn } from "@/lib/utils.ts";
+import { Body } from "../ui/Typography.tsx";
 
 const listenToScroll = (callback: () => void) => {
   window.addEventListener("scroll", callback);
@@ -31,9 +32,7 @@ export default function Header() {
       )}
     >
       <nav className="mx-auto max-w-[1080px] px-8 py-6 flex items-center justify-between">
-        <a href="#" className="font-medium text-accent text-sm">
-          Nicolas Joubert
-        </a>
+        <Body className="font-medium text-accent text-sm">Nicolas Joubert</Body>
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (

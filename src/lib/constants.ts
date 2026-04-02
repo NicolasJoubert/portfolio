@@ -137,32 +137,27 @@ export const USER_CONFIG = {
 } as const;
 
 export const SKILLS: Skill[] = [
-  {
-    name: "React",
-    category: "techno",
-    featured: true,
-  },
-  {
-    name: "Méthode Agile",
-    category: "expertise",
-    featured: true,
-  },
-  {
-    name: "Gestion de projet",
-    category: "expertise",
-    featured: true,
-  },
-  {
-    name: "Typescript",
-    category: "techno",
-    featured: true,
-  },
+  // --- TECH ---
+  { name: "React", category: "techno", featured: true },
+  { name: "Typescript", category: "techno", featured: true },
+  { name: "Node.js", category: "techno", featured: true },
+  { name: "Tailwind CSS", category: "techno", featured: false },
+
+  // --- EXPERTISE / PRODUIT ---
+  { name: "Product Discovery", category: "expertise", featured: true },
+  { name: "Méthode Agile", category: "expertise", featured: true },
+  { name: "Customer Success", category: "expertise", featured: true },
+  { name: "Architecture Scalable", category: "expertise", featured: false },
+  { name: "Gestion de projet", category: "expertise", featured: true },
 ];
 
 export const HERO_CONTENT: HeroContent = {
   title: "Je construis des interfaces qui durent",
-  description:
-    "Développeur React spécialisé en gestion de projet et commerce digital. Je transforme vos idées en expérience web haute performance qui génèrent des résultats mesurables.",
+  description: `Développeur de formation, j'ai compris qu'un bon produit ne se résume pas à un code performant. C'est avant tout une solution technique qui répond à un besoin réel.
+
+  J'interviens sur toute la chaîne : du développement React/Node à l'accompagnement client, en passant par le pilotage de projet agile.
+
+  Mon objectif ? Supprimer les frictions entre ceux qui fabriquent le produit et ceux qui l'utilisent.`,
   ctaLabel: "Me contacter",
 };
 
