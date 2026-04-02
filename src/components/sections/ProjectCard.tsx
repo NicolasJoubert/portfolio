@@ -13,23 +13,25 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const primaryLink = project.website ?? project.github;
 
   return (
-    <a
-      href={primaryLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-    >
+    <div className="group relative block rounded-2xl outline-none">
+      <a
+        href={primaryLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute inset-0 z-10"
+        aria-label={`Visiter le projet ${project.title}`}
+      />
+
       <Card
         className="
           relative flex flex-col sm:flex-row sm:gap-6
           bg-transparent border border-transparent p-4 sm:p-6
           transition-all duration-500 ease-out
-          hover:bg-muted/20 hover:backdrop-blur-[2px]
-          hover:border-border/40 hover:shadow-2xl hover:shadow-accent/5
-          hover:-translate-y-1
+          group-hover:bg-muted/20 group-hover:backdrop-blur-[2px]
+          group-hover:border-border/40 group-hover:shadow-2xl group-hover:shadow-accent/5
+          group-hover:-translate-y-1
         "
       >
-        {/* Image */}
         <div
           className="
             flex-shrink-0 w-full aspect-video
@@ -72,8 +74,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="shrink-0 text-muted-foreground/50 hover:text-accent transition-colors mt-1"
+                onClick={(e) => e.stopPropagation()} // Sécurité pour ne pas déclencher le parent
+                className="relative z-20 shrink-0 text-muted-foreground/50 hover:text-accent transition-colors mt-1 p-1"
                 aria-label="Voir le code source sur GitHub"
               >
                 <FaGithub className="w-5 h-5" />
@@ -83,7 +85,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
           <Body className="mb-5">{project.description}</Body>
 
-          <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
+          <div className="flex flex-wrap gap-1.5 mt-auto pt-2 relative z-20">
             {project.tech.map((techno) => (
               <Tag
                 key={techno.name}
@@ -96,6 +98,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
       </Card>
-    </a>
+    </div>
   );
 }
