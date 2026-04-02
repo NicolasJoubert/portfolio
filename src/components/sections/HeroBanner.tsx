@@ -17,7 +17,7 @@ export default function HeroBanner() {
   return (
     <section
       id="home"
-      className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center pt-12 pb-40"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center pt-24 pb-40"
     >
       <div className="flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left gap-6 lg:gap-8">
         <H1 className="hero-title relative inline-block cursor-default">
