@@ -1,5 +1,5 @@
 import type { Project } from "@/lib/constants";
-import Card from "../ui/Card.tsx";
+import Card from "../ui/CardPerso.tsx";
 import Tag from "../ui/Tag";
 import { H2, Body } from "../ui/Typography";
 import { ArrowUpRight } from "lucide-react";

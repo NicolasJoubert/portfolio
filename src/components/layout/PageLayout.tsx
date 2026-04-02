@@ -4,10 +4,11 @@ import ProjectCard from "@/components/sections/ProjectCard";
 import ExperienceCard from "@/components/sections/ExperienceCard";
 import HeroBanner from "@/components/sections/HeroBanner";
 import Button from "../ui/ButtonPerso.tsx";
+import ContactForm from "@/components/sections/ContactForm.tsx";
 
 export default function PageLayout() {
   return (
-    <main className="max-w-[1080px] mx-auto px-8 pt-18 pb-24 flex flex-col gap-6">
+    <main className="max-w-[1080px] mx-auto px-8 pt-18 pb-6 flex flex-col gap-6">
       <HeroBanner />
 
       <div className="max-w-4xl mx-auto w-full flex flex-col gap-16">
@@ -35,7 +36,7 @@ export default function PageLayout() {
               <ExperienceCard key={experience.id} experience={experience} />
             ))}
           </div>
-          <div className="mt-16 flex justify-center">
+          <div className="mt-6 flex justify-center">
             <Button
               href="/CV_Nicolas_Joubert.pdf"
               variant="primary"
@@ -44,6 +45,12 @@ export default function PageLayout() {
             >
               Télécharger mon CV
             </Button>
+          </div>
+        </section>
+        <section id="contact" className="pl-8 md:pl-12">
+          <SectionLabel>Contact</SectionLabel>
+          <div className="flex flex-col justify-center items-center gap-12">
+            <ContactForm />
           </div>
         </section>
       </div>

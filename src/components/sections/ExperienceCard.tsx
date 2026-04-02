@@ -8,7 +8,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import type { Experience } from "@/lib/constants";
-import Card from "@/components/ui/Card.tsx";
+import Card from "@/components/ui/CardPerso.tsx";
 import Tag from "@/components/ui/Tag";
 import { H2, Body, Small } from "@/components/ui/Typography";
 
