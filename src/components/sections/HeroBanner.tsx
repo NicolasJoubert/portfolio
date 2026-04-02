@@ -1,7 +1,7 @@
 import { AvailabilityBadge } from "../ui/AvailabilityBadge.tsx";
 import Tag from "../ui/Tag.tsx";
 import { Body, H1 } from "../ui/Typography.tsx";
-import { SKILLS } from "@/lib/constants.ts";
+import { HERO_CONTENT, SKILLS } from "@/lib/constants.ts";
 import Button from "@/components/ui/ButtonPerso.tsx";
 import image from "@/assets/nicolas_joubert.jpg";
 import { motion } from "framer-motion";
@@ -18,15 +18,9 @@ export default function HeroBanner() {
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-28">
       <div className="flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left gap-6 lg:gap-8">
         <H1 className="hero-title relative inline-block cursor-default">
-          <span className="wave-text">
-            Je construis des interfaces qui durent
-          </span>
+          <span className="wave-text">{HERO_CONTENT.title}</span>
         </H1>
-        <Body className="max-w-[540px]">
-          Développeur React spécialisé en gestion de projet et commerce digital.
-          Je transforme vos idées en expérience web haute performance qui
-          génèrent des résultats mesurables.
-        </Body>
+        <Body className="max-w-[540px]">{HERO_CONTENT.description}</Body>
         <div className="flex flex-wrap gap-2">
           {sortedSkills.map((skill) => (
             <Tag
@@ -40,7 +34,7 @@ export default function HeroBanner() {
           ))}
         </div>
         <div className="flex flex-col-reverse sm:flex-row items-start sm:items-center gap-4 mt-2">
-          <Button href="#contact">Me contacter</Button>
+          <Button href="#contact">{HERO_CONTENT.ctaLabel}</Button>
 
           <AvailabilityBadge />
         </div>

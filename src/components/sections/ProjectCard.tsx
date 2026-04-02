@@ -1,17 +1,20 @@
 import type { Project } from "@/lib/constants";
 import Card from "../ui/Card.tsx";
 import Tag from "../ui/Tag";
-// Import de tes composants de typographie
 import { H2, Body } from "../ui/Typography";
 import { ArrowUpRight } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
+
 interface ProjectCardProps {
   project: Project;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const primaryLink = project.website ?? project.github;
+
   return (
     <a
-      href={project.link}
+      href={primaryLink}
       target="_blank"
       rel="noopener noreferrer"
       className="group block rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
@@ -56,12 +59,27 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="flex flex-col gap-2 flex-grow min-w-0 pt-4 sm:pt-0">
-          <H2 className="text-xl md:text-2xl font-bold mb-1 group-hover:text-accent transition-colors">
-            <span className="inline-flex items-center gap-2">
-              {project.title}
-              <ArrowUpRight className="w-4 h-4 text-accent/40" />
-            </span>
-          </H2>
+          <div className="flex items-start justify-between gap-2">
+            <H2 className="text-xl md:text-2xl font-bold mb-1 group-hover:text-accent transition-colors">
+              <span className="inline-flex items-center gap-2">
+                {project.title}
+                <ArrowUpRight className="w-4 h-4 text-accent/40" />
+              </span>
+            </H2>
+
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="shrink-0 text-muted-foreground/50 hover:text-accent transition-colors mt-1"
+                aria-label="Voir le code source sur GitHub"
+              >
+                <FaGithub className="w-5 h-5" />
+              </a>
+            )}
+          </div>
 
           <Body className="mb-5">{project.description}</Body>
 
