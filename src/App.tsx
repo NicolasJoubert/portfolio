@@ -1,10 +1,17 @@
-import { Button } from "@/components/ui/button";
+import { Toaster } from "sonner";
+
+import Header from "@/components/layout/Header.tsx";
+import Footer from "./components/layout/Footer.tsx";
+import PageLayout from "./components/layout/PageLayout.tsx";
 
 function App() {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <Button>Mon Portfolio 2026</Button>
-    </div>
+    <>
+      <Toaster richColors closeButton />
+      <Header />
+      <PageLayout />
+      <Footer />
+    </>
   );
 }
 

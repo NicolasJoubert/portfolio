@@ -1,48 +1,69 @@
-# Portfolio - Nicolas
+# React + TypeScript + Vite
 
-Bienvenue dans le dépôt de mon portfolio personnel. Ce projet est une vitrine de mes compétences techniques et de mes réalisations.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## La Stack Technique
+Currently, two official plugins are available:
 
-- **Framework :** [React 19](https://react.dev/)
-- **Build Tool :** [Vite 7](https://vitejs.dev/)
-- **Styling :** [Tailwind CSS 4](https://tailwindcss.com/)
-- **Composants :** [Shadcn UI](https://ui.shadcn.com/)
-- **Animations :** [Framer Motion](https://www.framer.com/motion/)
-- **Typage :** [TypeScript 5.8](https://www.typescriptlang.org/)
-- **Validation :** [Zod](https://zod.dev/) & [React Hook Form](https://react-hook-form.com/)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Qualité de Code
+## Expanding the ESLint configuration
 
-Ce projet respecte des standards de développement rigoureux :
-- **Linting :** ESLint
-- **Formatage :** Prettier (avec tri automatique des classes Tailwind)
-- **Git Hooks :** Husky & Lint-Staged
-- **Conventions :** CommitLint (Conventional Commits)
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Structure du Projet
-```text
-src/
-├── assets/          # Images, icônes et fichiers statiques (ex: CV.pdf)
-├── components/
-│   ├─- ui/          # Composants atomiques Shadcn (Button, Card, Input...)
-│   └── sections/    # Grandes sections de la page (Hero, Projects, Contact...)
-├── hooks/           # Hooks personnalisés (ex: useScroll, useForm...)
-├── lib/             # Configuration et utilitaires (utils.ts, emailjs.ts...)
-├── schemas/         # Schémas de validation Zod (contactSchema...)
-├── App.tsx          # Composant racine (assemblage des sections)
-├── index.css        # Styles globaux et configuration Tailwind 4
-└── main.tsx         # Point d'entrée de l'application
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+]);
 ```
 
-## 🚀 Lancer le projet
-```bash
-git clone https://github.com/NicolasJoubert/portfolio.git
-cd portfolio
-npm install
-npm run dev
-```
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## Me contacter
-- [LinkedIn](https://www.linkedin.com/in/nicolas--joubert/)
-- [Email](mailto:nicolasjoubert@icloud.com)
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x';
+import reactDom from 'eslint-plugin-react-dom';
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+]);
+```
