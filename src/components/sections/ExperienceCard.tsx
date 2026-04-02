@@ -40,7 +40,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
   const Icon = getCompanyIcon(experience.type);
 
   return (
-    <div className="group relative">
+    <section id="#experience" className="group relative">
       <motion.div
         variants={cardFadeInVariant}
         initial="hidden"
@@ -112,6 +112,6 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
           </div>
         </Card>
       </motion.div>
-    </div>
+    </section>
   );
 }

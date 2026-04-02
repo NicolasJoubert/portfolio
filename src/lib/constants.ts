@@ -63,6 +63,7 @@ export interface Experience {
 export const NAV_LINKS: NavLink[] = [
   { label: "Accueil", href: "#home" },
   { label: "Projets", href: "#projects" },
+  { label: "Expérience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
