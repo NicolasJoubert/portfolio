@@ -8,10 +8,10 @@ import ContactForm from "@/components/sections/ContactForm.tsx";
 
 export default function PageLayout() {
   return (
-    <main className="max-w-[1080px] mx-auto px-8 pt-18 pb-6 flex flex-col gap-6">
+    <main className="max-w-[1080px] mx-auto px-8 pt-18 pb-6 flex flex-col gap-20">
       <HeroBanner />
 
-      <div className="max-w-4xl mx-auto w-full flex flex-col gap-16">
+      <div className="max-w-4xl mx-auto w-full flex flex-col gap-24">
         <section id="projects" className="pl-8 md:pl-12">
           <SectionLabel>Projets</SectionLabel>
           <div className="relative flex flex-col gap-12">
@@ -49,7 +49,8 @@ export default function PageLayout() {
         </section>
         <section id="contact" className="pl-8 md:pl-12">
           <SectionLabel>Contact</SectionLabel>
-          <div className="flex flex-col justify-center items-center gap-12">
+          <div className="relative flex flex-col justify-center items-center gap-12">
+            <div className="absolute -left-8 md:-left-12 top-0 bottom-0 w-px bg-border/40" />
             <ContactForm />
           </div>
         </section>

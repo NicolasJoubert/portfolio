@@ -30,7 +30,7 @@ export default function Button({
   };
 
   const base = cn(
-    "text-sm md:text-base px-6 py-2.5 rounded-full cursor-pointer transition-all inline-flex items-center justify-center font-medium",
+    "text-xs md:text-sm px-5 py-2 rounded-full cursor-pointer transition-all inline-flex items-center justify-center font-medium",
     styles[variant],
     className,
   );

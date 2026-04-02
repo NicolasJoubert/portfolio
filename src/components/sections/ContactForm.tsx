@@ -76,13 +76,13 @@ export default function ContactForm() {
   const { isSubmitting } = form.formState;
 
   return (
-    <section id="contact" className="w-full flex justify-center">
+    <section id="contact" className="w-full flex justify-center ">
       <Card className="w-full sm:max-w-md bg-transparent border-none shadow-none ring-0 p-2">
         <CardHeader className="px-0 pt-0">
-          <CardTitle className="text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-foreground">
+          <CardTitle className="text-xl md:text-2xl font-semibold tracking-[-0.03em] text-foreground text-accent">
             Formulaire
           </CardTitle>
-          <CardDescription className="text-[15px] md:text-base leading-relaxed">
+          <CardDescription className="text-sm md:text-[15px] leading-relaxed">
             Contactez-moi pour tous vos projets et demande de renseignements
           </CardDescription>
         </CardHeader>
@@ -148,8 +148,8 @@ export default function ContactForm() {
                           onClick={() => field.onChange(opt)}
                           className={
                             field.value === opt
-                              ? "relative z-10 scale-100 px-3.5 py-2 text-xs md:text-sm shadow-md"
-                              : "px-3.5 py-2 text-xs md:text-sm"
+                              ? "relative z-10 scale-100 px-2.5 py-1 text-[11px] shadow-md"
+                              : "px-2.5 py-1 text-[11px]"
                           }
                         >
                           {opt}
@@ -199,7 +199,7 @@ export default function ContactForm() {
               type="button"
               variant="secondary"
               onClick={() => form.reset()}
-              className="px-4 py-2 text-sm md:text-sm"
+              className="px-3 py-1.5 text-xs"
             >
               Annuler
             </Button>
@@ -207,7 +207,7 @@ export default function ContactForm() {
               type="submit"
               form="form-rhf-demo"
               disabled={isSubmitting}
-              className="px-4 py-2 text-sm md:text-sm"
+              className="px-3 py-1.5 text-xs"
             >
               {isSubmitting ? "Envoi..." : "Envoyer"}
             </Button>

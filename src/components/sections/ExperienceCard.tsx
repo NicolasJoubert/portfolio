@@ -7,10 +7,11 @@ import {
   Calendar,
   ArrowUpRight,
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
 import type { Experience } from "@/lib/constants";
 import Card from "@/components/ui/CardPerso.tsx";
 import Tag from "@/components/ui/Tag";
-import { H3, Body, Small } from "@/components/ui/Typography";
+import { H2, Body, Small } from "@/components/ui/Typography";
 
 interface ExperienceCardProps {
   experience: Experience;
@@ -40,7 +41,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
   const Icon = getCompanyIcon(experience.type);
 
   return (
-    <section id="#experience" className="group relative">
+    <section id="experiences" className="group relative">
       <motion.div
         variants={cardFadeInVariant}
         initial="hidden"
@@ -50,48 +51,60 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
         <Card
           className="
             bg-transparent border-transparent
-            p-4 sm:p-8
+            p-4 sm:p-6
             transition-all duration-500 ease-out
             hover:bg-muted/20 hover:backdrop-blur-[2px]
             hover:border-border/40 hover:shadow-2xl hover:shadow-accent/5
             hover:-translate-y-1
           "
         >
-          <div className="flex items-start justify-between mb-6 gap-4">
+          <div className="flex items-start justify-between mb-4 gap-4">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-muted/50 border border-border/20 flex items-center justify-center flex-shrink-0 group-hover:border-accent/30 transition-colors">
                 <Icon className="w-6 h-6 text-accent" />
               </div>
               <div>
-                <H3 className="mb-1 group-hover:text-accent transition-colors">
+                <H2 className="mb-1 group-hover:text-accent transition-colors">
                   {experience.role}
-                </H3>
+                </H2>
                 <Small className="font-medium">{experience.company}</Small>
-                {/* Date sous la company sur mobile uniquement */}
                 <div className="flex items-center gap-1.5 mt-1 sm:hidden text-muted-foreground/60">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <Small className="uppercase tracking-wider">
+                  <Calendar className="w-4 h-4" />
+                  <Small className="uppercase tracking-wider text-[8px]">
                     {experience.period}
                   </Small>
                 </div>
               </div>
             </div>
 
-            <div className="hidden sm:flex items-center gap-2 text-muted-foreground/60 flex-shrink-0">
-              <Calendar className="w-4 h-4" />
-              <Small className="uppercase tracking-wider">
-                {experience.period}
-              </Small>
+            <div className="hidden sm:flex items-center gap-3 text-muted-foreground/60 flex-shrink-0">
+              {experience.github && (
+                <a
+                  href={experience.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-muted-foreground/50 hover:text-accent transition-colors p-1"
+                  aria-label={`Voir le code source ${experience.company} sur GitHub`}
+                >
+                  <FaGithub className="w-4 h-4" />
+                </a>
+              )}
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-3 h-3" />
+                <Small className="uppercase tracking-wider text-[8px]">
+                  {experience.period}
+                </Small>
+              </div>
             </div>
           </div>
 
-          <Body className="mb-5">{experience.description}</Body>
+          <Body className="mb-4">{experience.description}</Body>
 
-          <ul className="space-y-4 mb-8 border-l-2 border-accent/10 pl-6 ml-2">
+          <ul className="space-y-3 mb-5 border-l-2 border-accent/10 pl-5 ml-2">
             {experience.achievements.map((achievement, i) => (
-              <li key={i} className="flex items-start gap-3 group/item">
-                <ArrowUpRight className="w-4 h-4 mt-1 flex-shrink-0 text-accent/30 group-hover/item:text-accent transition-colors" />
-                <p className="text-[15px] md:text-base text-muted-foreground leading-relaxed">
+              <li key={i} className="flex items-start gap-2.5 group/item">
+                <ArrowUpRight className="w-3.5 h-3.5 mt-1 flex-shrink-0 text-accent/30 group-hover/item:text-accent transition-colors" />
+                <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed">
                   {achievement}
                 </p>
               </li>

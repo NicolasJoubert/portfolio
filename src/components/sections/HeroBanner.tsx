@@ -31,7 +31,7 @@ export default function HeroBanner() {
             <Tag
               key={skill.name}
               category={skill.category as "techno" | "expertise"}
-              size="md"
+              size="sm"
               className="hover:scale-105 transition-transform"
             >
               {skill.name}

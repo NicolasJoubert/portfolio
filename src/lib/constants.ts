@@ -1,5 +1,5 @@
 // src/lib/constants.ts
-import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import type { IconType } from "react-icons";
 
 // =======================
@@ -53,6 +53,7 @@ export interface Experience {
   description: string;
   achievements: string[];
   technos: Techno[];
+  github?: string;
   logo?: string;
 }
 
@@ -63,7 +64,7 @@ export interface Experience {
 export const NAV_LINKS: NavLink[] = [
   { label: "Accueil", href: "#home" },
   { label: "Projets", href: "#projects" },
-  { label: "Expérience", href: "#experience" },
+  { label: "Expériences", href: "#experiences" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -75,7 +76,6 @@ export const SOCIALS: Social[] = [
     icon: FaLinkedin,
   },
   { name: "X", href: "https://x.com/Nico_Joubert", icon: FaXTwitter },
-  { name: "Email", href: "mailto:nicolasjoubert@icloud.com", icon: FaEnvelope },
 ] as const;
 
 export const PROJECTS: Project[] = [
@@ -183,6 +183,7 @@ export const EXPERIENCES: Experience[] = [
       { name: "SEO", category: "expertise" },
       { name: "Automation", category: "expertise" },
     ],
+    github: "https://github.com/NicolasJoubert/catTree-project",
   },
   {
     id: "grimoire",
@@ -202,6 +203,7 @@ export const EXPERIENCES: Experience[] = [
       { name: "MongoDB", category: "techno" },
       { name: "Product Design", category: "expertise" },
     ],
+    github: "https://github.com/NicolasJoubert/grimoire-front/tree/develop",
   },
   {
     id: "ofestival",
@@ -222,6 +224,7 @@ export const EXPERIENCES: Experience[] = [
       { name: "SQL", category: "techno" },
       { name: "Agile", category: "expertise" },
     ],
+    github: "https://github.com/NicolasJoubert/o_festival",
   },
   {
     id: "bnp-labo",

@@ -31,7 +31,7 @@ export default function Header() {
       )}
     >
       <nav className="mx-auto max-w-[1080px] px-8 py-6 flex items-center justify-between">
-        <span className="font-medium text-accent text-base md:text-lg">
+        <span className="font-medium text-accent text-base">
           Nicolas Joubert
         </span>
         {/* Desktop nav */}

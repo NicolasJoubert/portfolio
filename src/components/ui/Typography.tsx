@@ -8,7 +8,7 @@ interface TypoProps {
 export const H1 = ({ children, className }: TypoProps) => (
   <h1
     className={cn(
-      "text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.04em] leading-[1.05] text-foreground",
+      "text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.04em] leading-[1.05] text-foreground",
       className,
     )}
   >
@@ -19,7 +19,7 @@ export const H1 = ({ children, className }: TypoProps) => (
 export const H2 = ({ children, className }: TypoProps) => (
   <h2
     className={cn(
-      "text-2xl md:text-3xl font-semibold tracking-[-0.03em] leading-tight text-foreground",
+      "text-xl md:text-2xl font-semibold tracking-[-0.03em] leading-tight text-foreground",
       className,
     )}
   >
@@ -41,7 +41,7 @@ export const H3 = ({ children, className }: TypoProps) => (
 export const Body = ({ children, className }: TypoProps) => (
   <p
     className={cn(
-      "text-[15px] md:text-base text-muted-foreground leading-relaxed",
+      "text-[14px] md:text-base text-muted-foreground leading-relaxed",
       className,
     )}
   >
