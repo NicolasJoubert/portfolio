@@ -1,69 +1,57 @@
-# React + TypeScript + Vite
+# Nicolas Joubert - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue sur le dépôt de mon portfolio personnel !
+Ce site web a été conçu pour présenter mon travail, mes compétences et mes projets en tant que développeur, avec un focus sur l'ergonomie, les micro-animations et un design moderne.
 
-Currently, two official plugins are available:
+## Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Design Moderne & Épuré** : Interface soignée (Dark/Light).
+- **Animations Subtiles** : Expérience utilisateur avec Framer Motion (hover, apparition, badge de disponibilité "en direct").
+- **Entièrement Responsive** : S'adapte aux mobiles, tablettes et ordinateurs de bureau.
+- **Architecture Propre** : Code structuré, scalable (DRY) et composants fortement réutilisables grâce à Shadcn.
 
-## Expanding the ESLint configuration
+## Stack Technique
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Ce portfolio est construit avec :
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Cœur** : [React](https://react.dev/) (v19) via le bundler [Vite](https://vitejs.dev/)
+- **Langage** : [TypeScript](https://www.typescriptlang.org/)
+- **Styling** : [Tailwind CSS](https://tailwindcss.com/)
+- **Composants Prêts à l'Emploi** : [Shadcn/UI](https://ui.shadcn.com/) & Radix UI
+- **Animations** : [Framer Motion](https://www.framer.com/motion/)
+- **Icônes** : [React Icons](https://react-icons.github.io/react-icons/) (FontAwesome 6) & [Lucide React](https://lucide.dev/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Lancer le projet localement
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+Pour explorer le code ou modifier le projet sur votre machine :
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Cloner le dépôt**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+   ```bash
+   git clone https://github.com/ton-pseudo/mon-portfolio.git
+   cd mon-portfolio
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+2. **Installer les dépendances**
+
+   ```bash
+   npm install
+   ```
+
+3. **Lancer le serveur de développement**
+   ```bash
+   npm run dev
+   ```
+   Le site sera accessible à l'adresse indiquée dans votre terminal (généralement `http://localhost:5173`).
+
+## Contact
+
+Un projet en tête ou simplement envie de discuter ? Retrouvez-moi sur mes réseaux :
+
+- **LinkedIn** : [Nicolas Joubert](https://www.linkedin.com/in/nicolas--joubert/)
+- **X (Twitter)** : [@Nico_Joubert](https://x.com/Nico_Joubert)
+- **Email** : [nicolasjoubert@icloud.com](mailto:nicolasjoubert@icloud.com)
+
+---
+
+_Conçu et développé par Nicolas Joubert._
