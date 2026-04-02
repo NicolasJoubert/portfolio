@@ -3,7 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
-
+import emailjs from "@emailjs/browser";
 import Button from "../ui/ButtonPerso";
 import {
   Card,
@@ -57,17 +57,28 @@ export default function ContactForm() {
 
   async function onSubmit(data: z.infer<typeof contactSchema>) {
     try {
-      console.log("Sending data:", data);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await emailjs.send(
+        "service_whvntdd",
+        "template_caeo65m",
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        "LlvdU-Rxoz5XB3KSb",
+      );
 
       toast.success("Message envoyé !", {
-        description: "Je vous répondrai dans les plus brefs délais.",
+        description: `Merci ${data.name}, votre demande a bien été reçue.`,
         position: "bottom-right",
       });
       form.reset();
-    } catch {
+    } catch (error) {
+      console.error("Erreur EmailJS:", error);
       toast.error("Erreur lors de l'envoi", {
-        description: "Veuillez réessayer plus tard.",
+        description:
+          "Veuillez réessayer plus tard ou me contacter via LinkedIn.",
         position: "bottom-right",
       });
     }
