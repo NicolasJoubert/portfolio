@@ -1,9 +1,9 @@
+import * as React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence } from "framer-motion";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
-import emailjs from "@emailjs/browser";
 
 import Button from "../ui/ButtonPerso";
 import {
@@ -58,17 +58,8 @@ export default function ContactForm() {
 
   async function onSubmit(data: z.infer<typeof contactSchema>) {
     try {
-      await emailjs.send(
-        "service_whvntdd",
-        "template_caeo65m",
-        {
-          from_name: data.name,
-          from_email: data.email,
-          subject: data.subject,
-          message: data.message,
-        },
-        "LlvdU-Rxoz5XB3KSb",
-      );
+      console.log("Sending data:", data);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success("Message envoyé !", {
         description: "Je vous répondrai dans les plus brefs délais.",
@@ -86,129 +77,133 @@ export default function ContactForm() {
   const { isSubmitting } = form.formState;
 
   return (
-    <Card className="w-full sm:max-w-md bg-transparent border-none shadow-none ring-0 p-0 p-2">
-      <CardHeader className="px-0 pt-0">
-        <CardTitle>Formulaire</CardTitle>
-        <CardDescription>
-          Contactez-moi pour tous vos projets et demande de renseignements
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="px-0 pb-0">
-        <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
-            <Controller
-              name="name"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Nom / Entreprise</FieldLabel>
-                  <Input
-                    {...field}
-                    placeholder="Ex: Jean de chez TechCorp"
-                    className="bg-white text-black placeholder:text-sm md:placeholder:text-xs placeholder:italic"
-                  />
-                  <AnimatePresence>
+    <section id="contact" className="w-full flex justify-center">
+      <Card className="w-full sm:max-w-md bg-transparent border-none shadow-none ring-0 p-2">
+        <CardHeader className="px-0 pt-0">
+          <CardTitle>Formulaire</CardTitle>
+          <CardDescription>
+            Contactez-moi pour tous vos projets et demande de renseignements
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="px-0 pb-0">
+          <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
+            <FieldGroup>
+              <Controller
+                name="name"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel>Nom / Entreprise</FieldLabel>
+                    <Input
+                      {...field}
+                      placeholder="Ex: Jean de chez TechCorp"
+                      className="bg-white text-black placeholder:text-sm md:placeholder:text-xs placeholder:italic"
+                    />
+                    <AnimatePresence>
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </AnimatePresence>
+                  </Field>
+                )}
+              />
+              <Controller
+                name="email"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel>Email professionnel</FieldLabel>
+                    <Input
+                      {...field}
+                      type="email"
+                      placeholder="jean@techcorp.com"
+                      className="bg-white text-black placeholder:text-sm md:placeholder:text-xs placeholder:italic"
+                    />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
                     )}
-                  </AnimatePresence>
-                </Field>
-              )}
-            />
-            <Controller
-              name="email"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Email professionnel</FieldLabel>
-                  <Input
-                    {...field}
-                    type="email"
-                    placeholder="jean@techcorp.com"
-                    className="bg-white text-black placeholder:text-sm md:placeholder:text-xs placeholder:italic"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-            <Controller
-              name="subject"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Votre besoin</FieldLabel>
-                  <div className="flex flex-wrap gap-3 py-2 px-2">
-                    {[
-                      "Création site Web",
-                      "Audit Produit / PO",
-                      "Stratégie Customer Success",
-                      "Autre",
-                    ].map((opt) => (
-                      <Button
-                        key={opt}
-                        type="button"
-                        variant={field.value === opt ? "primary" : "secondary"}
-                        onClick={() => field.onChange(opt)}
-                        className={
-                          field.value === opt
-                            ? "scale-105 shadow-md relative z-10"
-                            : ""
-                        }
-                      >
-                        {opt}
-                      </Button>
-                    ))}
-                  </div>
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-            <Controller
-              name="message"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel>Message</FieldLabel>
-                  <InputGroup className="bg-white text-black">
-                    <InputGroupTextarea
-                      {...field}
-                      placeholder="Décrivez votre projet ou votre problématique..."
-                      rows={5}
-                      className="min-h-24 resize-none placeholder:text-sm md:placeholder:text-xs placeholder:italic"
-                    />
-                    <InputGroupAddon align="block-end">
-                      <InputGroupText className="tabular-nums text-[10px] opacity-50">
-                        {field.value.length}/1000
-                      </InputGroupText>
-                    </InputGroupAddon>
-                  </InputGroup>
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-          </FieldGroup>
-        </form>
-      </CardContent>
-      <CardFooter className="bg-transparent border-none p-0 pt-4">
-        <Field orientation="horizontal" className="flex justify-center">
-          <Button
-            type="button"
-            variant="secondary"
-            onClick={() => form.reset()}
-          >
-            Annuler
-          </Button>
-          <Button type="submit" form="form-rhf-demo" disabled={isSubmitting}>
-            {isSubmitting ? "Envoi..." : "Envoyer"}
-          </Button>
-        </Field>
-      </CardFooter>
-    </Card>
+                  </Field>
+                )}
+              />
+              <Controller
+                name="subject"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel>Votre besoin</FieldLabel>
+                    <div className="flex flex-wrap gap-3 py-2 px-2">
+                      {[
+                        "Création site Web",
+                        "Audit Produit / PO",
+                        "Stratégie Customer Success",
+                        "Autre",
+                      ].map((opt) => (
+                        <Button
+                          key={opt}
+                          type="button"
+                          variant={
+                            field.value === opt ? "primary" : "secondary"
+                          }
+                          onClick={() => field.onChange(opt)}
+                          className={
+                            field.value === opt
+                              ? "scale-105 shadow-md relative z-10"
+                              : ""
+                          }
+                        >
+                          {opt}
+                        </Button>
+                      ))}
+                    </div>
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                name="message"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel>Message</FieldLabel>
+                    <InputGroup className="bg-white text-black">
+                      <InputGroupTextarea
+                        {...field}
+                        placeholder="Décrivez votre projet ou votre problématique..."
+                        rows={5}
+                        className="min-h-24 resize-none placeholder:text-sm md:placeholder:text-xs placeholder:italic"
+                      />
+                      <InputGroupAddon align="block-end">
+                        <InputGroupText className="tabular-nums text-[10px] opacity-50">
+                          {field.value.length}/1000
+                        </InputGroupText>
+                      </InputGroupAddon>
+                    </InputGroup>
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+            </FieldGroup>
+          </form>
+        </CardContent>
+        <CardFooter className="bg-transparent border-none p-0 pt-4">
+          <Field orientation="horizontal" className="flex justify-center">
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={() => form.reset()}
+            >
+              Annuler
+            </Button>
+            <Button type="submit" form="form-rhf-demo" disabled={isSubmitting}>
+              {isSubmitting ? "Envoi..." : "Envoyer"}
+            </Button>
+          </Field>
+        </CardFooter>
+      </Card>
+    </section>
   );
 }

@@ -101,6 +101,21 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-margin-top: 100px;
+  font-family: var(--font-sans);
+}
+
+[id] {
+  scroll-margin-top: 100px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 .wave-text {
   background: linear-gradient(
     90deg,
@@ -130,17 +145,5 @@
   }
   50% {
     background-position: 100% 0;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
   }
 }
