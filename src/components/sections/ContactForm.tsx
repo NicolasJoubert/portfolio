@@ -58,15 +58,15 @@ export default function ContactForm() {
   async function onSubmit(data: z.infer<typeof contactSchema>) {
     try {
       await emailjs.send(
-        "service_whvntdd",
-        "template_caeo65m",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: data.name,
           from_email: data.email,
           subject: data.subject,
           message: data.message,
         },
-        "LlvdU-Rxoz5XB3KSb",
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
 
       toast.success("Message envoyé !", {
