@@ -3,7 +3,7 @@ import Tag from "../ui/Tag.tsx";
 import { Body, H1 } from "../ui/Typography.tsx";
 import { HERO_CONTENT, SKILLS } from "@/lib/constants.ts";
 import Button from "@/components/ui/ButtonPerso.tsx";
-import image from "@/assets/nicolas_joubert.jpg";
+import nicolasImg from "@/assets/nicolas_joubert.webp";
 import { motion } from "framer-motion";
 
 export default function HeroBanner() {
@@ -47,8 +47,11 @@ export default function HeroBanner() {
       <div className="relative w-full max-w-[400px] lg:w-[450px] flex-shrink-0">
         <div className="hhero-image group aspect-[4/5] overflow-hidden rounded-[1.5rem] shadow-2xl transition-all duration-500 hover:scale-[1.02]">
           <motion.img
-            src={image}
+            src={nicolasImg}
             alt="Photo de profil Nicolas Joubert"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
             initial={{ filter: "grayscale(100%) contrast(110%)", scale: 1.1 }}
             whileHover={{
               filter: "grayscale(0%) contrast(100%)",

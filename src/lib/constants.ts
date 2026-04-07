@@ -1,6 +1,9 @@
 // src/lib/constants.ts
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import type { IconType } from "react-icons";
+import casaImg from "@/assets/laCasaDesChats.webp";
+import grimoireImg from "@/assets/grimoire.webp";
+import ofestivalImg from "@/assets/ofestival.webp";
 
 // =======================
 // INTERFACES
@@ -93,7 +96,7 @@ export const PROJECTS: Project[] = [
       { name: "SEO", category: "expertise" },
       { name: "Chef de Projet", category: "expertise" },
     ],
-    image: "laCasaDesChats.png",
+    image: casaImg,
     imagePosition: "center 30%",
     website: "https://lacasadeschats.fr/",
     github: "https://github.com/NicolasJoubert/catTree-project",
@@ -108,7 +111,7 @@ export const PROJECTS: Project[] = [
       { name: "Tailwind CSS", category: "techno" },
       { name: "Jdoodle API", category: "techno" },
     ],
-    image: "grimoire.png",
+    image: grimoireImg,
     website: "https://mongrimoire.dev",
     github: "https://github.com/NicolasJoubert/grimoire-front/tree/develop",
   },
@@ -122,7 +125,7 @@ export const PROJECTS: Project[] = [
       { name: "Agile", category: "expertise" },
       { name: "Scrum Master", category: "expertise" },
     ],
-    image: "ofestival.png",
+    image: ofestivalImg,
     imagePosition: "center 25%",
     website: "https://ofestival-production-bffe.up.railway.app/",
     github: "https://github.com/NicolasJoubert/o_festival",
