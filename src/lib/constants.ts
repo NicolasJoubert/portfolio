@@ -4,6 +4,7 @@ import type { IconType } from "react-icons";
 import casaImg from "@/assets/laCasaDesChats.webp";
 import grimoireImg from "@/assets/grimoire.webp";
 import ofestivalImg from "@/assets/ofestival.webp";
+import togglGoogleImg from "@/assets/togglGoogle.webp";
 
 // =======================
 // INTERFACES
@@ -82,6 +83,18 @@ export const SOCIALS: Social[] = [
 ] as const;
 
 export const PROJECTS: Project[] = [
+  {
+    title: "Toggl to Google Calendar",
+    description: `Synchronisation automatique Toggl Track → Google Calendar. \nFini la double saisie : vos time entries deviennent des événements.`,
+    tech: [
+      { name: "Google Apps Script", category: "techno" },
+      { name: "Toggl API", category: "techno" },
+      { name: "Automation", category: "techno" },
+    ],
+    image: togglGoogleImg,
+    imagePosition: "center 30%",
+    github: "https://github.com/NicolasJoubert/Toggl-to-GoogleCalendar",
+  },
   {
     title: "La Casa des Chats",
     description:

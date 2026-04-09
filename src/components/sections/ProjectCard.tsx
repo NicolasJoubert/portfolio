@@ -104,7 +104,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               )}
             </div>
 
-            <Body className="mb-5">{project.description}</Body>
+            <Body className="mb-5 whitespace-pre-line">
+              {project.description}
+            </Body>
 
             <div className="flex flex-wrap gap-1.5 mt-auto pt-2 relative z-20">
               {project.tech.map((techno) => (
