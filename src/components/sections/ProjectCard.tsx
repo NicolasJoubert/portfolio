@@ -69,9 +69,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 decoding="async"
                 className="
                 w-full h-full object-cover
-                grayscale opacity-70 scale-105
-                group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-100
                 transition-all duration-700 ease-in-out
+                md:grayscale md:opacity-70 md:scale-105
+                md:group-hover:grayscale-0 md:group-hover:opacity-100 md:group-hover:scale-100
               "
               />
             ) : (
@@ -99,7 +99,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   className="relative z-20 shrink-0 text-muted-foreground/50 hover:text-accent transition-colors mt-1 p-1"
                   aria-label="Voir le code source sur GitHub"
                 >
-                  <FaGithub className="w-5 h-5" />
+                  <FaGithub className="w-5 h-5" />a
                 </a>
               )}
             </div>
