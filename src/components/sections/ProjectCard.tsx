@@ -99,7 +99,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   className="relative z-20 shrink-0 text-muted-foreground/50 hover:text-accent transition-colors mt-1 p-1"
                   aria-label="Voir le code source sur GitHub"
                 >
-                  <FaGithub className="w-5 h-5" />a
+                  <FaGithub className="w-5 h-5" />
                 </a>
               )}
             </div>
